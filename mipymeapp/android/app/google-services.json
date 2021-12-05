@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "861391283885",
+    "project_id": "mipymeapp-c4fe9",
+    "storage_bucket": "mipymeapp-c4fe9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861391283885:android:f422ecd9b1d54f4cab8824",
+        "android_client_info": {
+          "package_name": "edu.unbosque.mipymeapp.mipymeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861391283885-64adcttr2o2o46jpulp656tgrogq3njh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCADTjk84u0rKQM_8Q3ID4YrAvoyhe3WGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861391283885-64adcttr2o2o46jpulp656tgrogq3njh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
