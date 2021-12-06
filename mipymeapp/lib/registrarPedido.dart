@@ -60,7 +60,7 @@ class _registrarPedidoState extends State<registrarPedido> {
               leading: Icon(Icons.add_box, size: 30, color: Colors.blue),
               title: Container(
                 padding: EdgeInsets.all(20.0),
-                color: Colors.yellow,
+                color: Colors.red[50],
                 child: Text(listaProductos[i]['nombre'] + " - " +
                     listaProductos[i]['descripcion'] + " - " +
                     listaProductos[i]['precio'].toString()),

@@ -22,8 +22,10 @@ class _carritoComprasState extends State<carritoCompras> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        title: Text("Carrito de Compras"),
+        backgroundColor: Colors.red[700],
+        title: Text("Carrito de Compras", style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 28),),
       ),
       drawer: menu(),
       body: Center(
@@ -97,13 +99,13 @@ class _carritoBarState extends State<carritoBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.amber,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white,
+      backgroundColor: Colors.red,
+      selectedItemColor: Colors.red[50],
+      unselectedItemColor: Colors.yellow[50],
       items: [
         BottomNavigationBarItem(
             icon: Icon(Icons.add_shopping_cart_sharp, size: 30),
-            label: "Agregar\nCurso"
+            label: "Agregar\nProductos"
         ),
         BottomNavigationBarItem(
             icon: Icon(Icons.app_registration, size: 30),

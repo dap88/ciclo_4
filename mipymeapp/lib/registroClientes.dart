@@ -109,9 +109,11 @@ class _registroClientesState extends State<registroClientes> {
               child: TextField(
                 controller: clave,
                 style: TextStyle(color: Colors.red[50]),
+                obscureText: true,
                 decoration: InputDecoration(
                     fillColor: Colors.red,
                     filled: true,
+                    border: OutlineInputBorder(),
                     icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.red[900]),
                     hintText: "Digite una contraseña para el sistema",
                     hintStyle: TextStyle(color: Colors.black54)

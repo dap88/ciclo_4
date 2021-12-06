@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'MipymeApp',
       theme: ThemeData(
         // Este es el tema de la aplicación.
-        fontFamily: 'LobsterTwo', //Carga fuente
+        fontFamily: 'Coiny', //Carga fuente
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -46,10 +46,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-/*  void initState(){
-    super.initState();
-  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -91,21 +87,6 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         )
-      /*Center(
-        // Center es un widget de diseño. Toma un solo "hijo" y lo coloca en
-        // medio del padre.
- /*       child: Column(
-          // Column también es un widget de diseño. Toma una lista de "hijos" y
-          // los ordena verticalmente. De forma predeterminada, se ajusta a sí
-          // mismo para adaptarse a sus "hijos" horizontalmente e intenta ser
-          // tan alto como su padre.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Una App que te conecta con los negocios cercanos'),
-          ],
-        ),*/
-        child: Text("Una App que te conecta con los negocios cercanos", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.blueAccent))
-      ),*/
     );
   }
 }
@@ -157,31 +138,10 @@ class menu extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>mensaje()));
                 },
               ),
-              ListTile(
-                leading: Icon(Icons.map_outlined, size: 30, color: Colors.red[900],),
-                enabled: true,
-                title: Text("Mapa", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900]),),
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>mapas()));
-                },
-              ),
             ],
           )
         ],
       ),
     );
   }
-}
-
-class datosMapa_Persona{
-  String nombre = "";
-  String direccion = "";
-  int celular = "";
-  int telefono = ""
-  String logo = "";
-  String foto = "";
-  String web = "";
-  late GeoPoint posicion;
-
-  datosMapa_Persona(this.nombre, this.direccion, this.celular, this.telefono, this.logo, this.foto, this.web, this.posicion);
 }

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mipymeapp/resultadoConsulta.dart';
+import 'package:mipymeapp/negocios.dart';
 
 class mapas extends StatefulWidget {
 
@@ -14,7 +15,7 @@ class mapas extends StatefulWidget {
 
 class _mapasState extends State<mapas> {
 
-  late GeoPoint pos = widget.
+  late GeoPoint pos = widget.negocio.posicion;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _mapasState extends State<mapas> {
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
           infoWindow: InfoWindow(
               title: widget.negocio.nombre+" "+widget.negocio.direccion,
-              snippet: widget.negocio.clave
+              snippet: widget.negocio.categoria
           )
       )
     );
@@ -59,4 +60,17 @@ class _mapasState extends State<mapas> {
         )
     );
   }
+}
+
+class datosMapa_Negocio{
+  String nombre = "";
+  String direccion = "";
+  String categoria = "";
+  int celular = 0;
+  int telefono = 0;
+  String foto = "";
+  String paginaweb = "";
+  late GeoPoint posicion;
+
+  datosMapa_Negocio(this.nombre, this.direccion, this.categoria, this.celular, this.telefono, this.foto, this.paginaweb, this.posicion);
 }

@@ -54,7 +54,7 @@ class _listaNegociosState extends State<listaNegocios> {
                 onTap:(){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>registrarPedido(id: codigos[i], cedula: widget.cedula)));
                 },
-                title: cuadroImagenes(url: negocios[i]['foto'],texto: negocios[i]['nombre']+'\n'+negocios[i]['direccion']+'\n'+negocios[i]['celular'])
+                title: cuadroImagenes(url: negocios[i]['foto'],texto: negocios[i]['nombre']+'\n'+negocios[i]['direccion']+'\n'+negocios[i]['celular'].toString())
             );
           }),
     );

@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mipymeapp/registroClientes.dart';
 import 'package:mipymeapp/resultadoConsulta.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:mipymeapp/mapas.dart';
 import 'main.dart';
 
 class negocios extends StatelessWidget {
@@ -25,7 +28,7 @@ class negocios extends StatelessWidget {
             onPressed: (){
               launch(negocio.paginaweb.toString());
             },
-            child: Text("Pagina web"))
+            child: Text("Pagina web")),
         ],
       ),
       floatingActionButton: FloatingActionButton(
