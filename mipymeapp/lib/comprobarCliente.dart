@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mipymeapp/actualizarCliente.dart';
+import 'package:mipymeapp/inicio.dart';
 import 'package:mipymeapp/main.dart';
 
 class comprobarCliente extends StatefulWidget {
@@ -22,7 +23,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
     return Scaffold(
         backgroundColor: Colors.lightBlue[50],
         appBar: AppBar(
-          backgroundColor: Colors.red[700],
+          backgroundColor: Colors.orangeAccent[200],
           title: Text("Comprobar Cliente", style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 28),),
         ),
         drawer: menu(),
@@ -35,7 +36,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
                 decoration: InputDecoration(
                     fillColor: Colors.red,
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,size: 25, color: Colors.red[900]),
+                    icon: Icon(Icons.assignment_rounded,size: 25, color: Colors.orange),
                     hintText: "Digite numero de cedula",
                     hintStyle: TextStyle(color: Colors.black54)),
               )),
@@ -47,7 +48,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
                 decoration: InputDecoration(
                     fillColor: Colors.red,
                     filled: true,
-                    icon: Icon(Icons.assignment_rounded,size: 25, color: Colors.red[900]),
+                    icon: Icon(Icons.assignment_rounded,size: 25, color: Colors.orange),
                     hintText: "Digite su contraseña",
                     hintStyle: TextStyle(color: Colors.black54)),
               )),
@@ -73,10 +74,10 @@ class _comprobarClienteState extends State<comprobarCliente> {
                       listaCliente[0]['telefono'],
                       listaCliente[0]['clave']);
                   Navigator.push(context, MaterialPageRoute(builder: (context) => actualizarCliente(cliente: dCli)));
-                  Fluttertoast.showToast(msg: "Cargando Datos", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
+                  Fluttertoast.showToast(msg: "Cargando Datos", fontSize: 20, backgroundColor: Colors.orange, textColor: Colors.lightGreen,
                       toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
                 } else {
-                  Fluttertoast.showToast(msg: "Datos Incorrectos", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
+                  Fluttertoast.showToast(msg: "Datos Incorrectos", fontSize: 20, backgroundColor: Colors.orange, textColor: Colors.lightGreen,
                       toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
                 }
               },

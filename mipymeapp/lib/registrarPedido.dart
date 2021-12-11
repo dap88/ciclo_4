@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mipymeapp/carritodeCompras.dart';
+import 'package:mipymeapp/inicio.dart';
 import 'package:mipymeapp/main.dart';
 
 class registrarPedido extends StatefulWidget {
@@ -42,7 +43,7 @@ class _registrarPedidoState extends State<registrarPedido> {
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        backgroundColor: Colors.red[700],
+        backgroundColor: Colors.orangeAccent[200],
         title: Text("Registrar pedido", style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 28),),
         actions: [
           IconButton(

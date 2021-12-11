@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mipymeapp/comprobarCliente.dart';
-import 'package:mipymeapp/consultaNegocios.dart';
-import 'package:mipymeapp/mapas.dart';
-import 'package:mipymeapp/mensaje.dart';
-import 'package:mipymeapp/pedidos.dart';
-import 'package:mipymeapp/registroClientes.dart';
+import 'package:mipymeapp/inicio.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // Este es el tema de la aplicación.
         fontFamily: 'Coiny', //Carga fuente
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const MyHomePage(title: 'MipymeApp'),
@@ -51,97 +45,59 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // Este método se vuelve a ejecutar cada vez que se llama a setState
     return Scaffold(
-        backgroundColor: Colors.lightBlue[50],
+        backgroundColor: Colors.white,
         appBar: AppBar(
           // Aquí se toma el valor del objeto MyHomePage que fue creado por el
           // método App.build y se usa para establecer el título de la barra de
           // aplicaciones.
-          backgroundColor: Colors.red[700],
+          backgroundColor: Colors.orangeAccent[200],
           centerTitle: true,
           title: Text("MipymeApp", style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 35),),
         ),
-
-        drawer: menu(),
-
-        body:  ListView(
+        body:  PageView(
+          physics: BouncingScrollPhysics(),
           children: [
-            Container(
-                color: Colors.blueGrey[100],
-                padding: EdgeInsets.all(25.0),
-                child: Image.network('https://firebasestorage.googleapis.com/v0/b/mipymeapp-c4fe9.appspot.com/o/Fondos%2FDrogueria.jpg?alt=media&token=dbb8687f-9d93-49b1-85e1-2bc3695ceaef', scale: 2.5,)
-            ),
-            Container(
-                color: Colors.blueGrey[100],
-                padding: EdgeInsets.all(25.0),
-                child: Image.network('https://firebasestorage.googleapis.com/v0/b/mipymeapp-c4fe9.appspot.com/o/Fondos%2FPanaderia.jpg?alt=media&token=2de887be-d758-481e-a14b-3f9edccc042d', scale: 2.5,)
-            ),
-            Container(
-                color: Colors.blueGrey[100],
-                padding: EdgeInsets.all(25.0),
-                child: Image.network('https://firebasestorage.googleapis.com/v0/b/mipymeapp-c4fe9.appspot.com/o/Fondos%2FPeluqueria.jpg?alt=media&token=8418a39c-6434-4ca4-b15e-44c9ce7e9606', scale: 2.5,)
-            ),
-            Container(
-                color: Colors.blueGrey[100],
-                padding: EdgeInsets.all(25.0),
-                child: Image.network('https://firebasestorage.googleapis.com/v0/b/mipymeapp-c4fe9.appspot.com/o/Fondos%2FRestaurante.jpg?alt=media&token=b362cfdf-7cb8-4522-9b79-406e3a45eb20', scale: 2.5,)
-            )
+            imagen(url: 'https://firebasestorage.googleapis.com/v0/b/mipymeapp-c4fe9.appspot.com/o/Fondos%2Fsplash_1.png?alt=media&token=960de486-85d0-400d-8200-bc4ff0b02c0b'),
+            imagen(url: 'https://firebasestorage.googleapis.com/v0/b/mipymeapp-c4fe9.appspot.com/o/Fondos%2Fsplash_2.png?alt=media&token=305a808b-37f9-449c-a7e5-3dfd93bcf150'),
+            imagen(url: 'https://firebasestorage.googleapis.com/v0/b/mipymeapp-c4fe9.appspot.com/o/Fondos%2Fsplash_3.png?alt=media&token=f4dcc977-2ebb-44c1-9ace-36ee06b58bd0'),
           ],
         )
     );
   }
 }
 
-class menu extends StatelessWidget {
+class imagen extends StatelessWidget {
+
+  final String url;
+
+  const imagen({required this.url});
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          DrawerHeader(
-            decoration: BoxDecoration(
-                color: Colors.red[700]
-            ),
-            child: Image.network('https://firebasestorage.googleapis.com/v0/b/mipymeapp-c4fe9.appspot.com/o/Fondos%2FBuscador-Google-Maps-Negocios.jpg?alt=media&token=d889d066-2d2b-4e67-8cd5-d78643fd1fae'),
-          ),
-          Column(
-            children: [
-              ListTile(
-                leading: Icon(Icons.storefront, size: 30, color: Colors.red[900],),
-                title: Text("Consulta Negocios", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900]),),
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>consultaNegocios()));
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.person_add, size: 30, color: Colors.red[900],),
-                enabled: true,
-                title: Text("Regístrate", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900]),),
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>registroClientes()));
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.shopping_cart, size: 30, color: Colors.red[900],),
-                enabled: true,
-                title: Text("Comprar", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900]),),
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>pedidos()));
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.email, size: 30, color: Colors.red[900],),
-                enabled: true,
-                title: Text("Notificaciones", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900]),),
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>mensaje()));
-                },
-              ),
-            ],
-          )
-        ],
-      ),
+    return ListView(
+      children: [
+        Image.network(url),
+        ElevatedButton(
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>inicio())); // Llamado a la pantalla inicio
+          }, child: Text("Empezar"),
+        )
+      ],
+    );
+  }
+}
+
+class principal extends StatelessWidget {
+  const principal({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Center(
+
+        )
+      ],
     );
   }
 }

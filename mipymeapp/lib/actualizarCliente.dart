@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mipymeapp/comprobarCliente.dart';
-import 'package:mipymeapp/main.dart';
+import 'package:mipymeapp/inicio.dart';
 
 class actualizarCliente extends StatefulWidget {
   final datosCliente cliente;
@@ -30,7 +30,7 @@ class _actualizarClienteState extends State<actualizarCliente> {
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        backgroundColor: Colors.red[700],
+        backgroundColor: Colors.orangeAccent[200],
         title: Text("Actualizar Datos: "+ widget.cliente.nombre, style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 28),),
       ),
       drawer: menu(),

@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mipymeapp/inicio.dart';
 import 'package:mipymeapp/listaNegocios.dart';
-import 'package:mipymeapp/main.dart';
 import 'package:mipymeapp/registrarPedido.dart';
 
 class carritoCompras extends StatefulWidget {
@@ -24,7 +24,7 @@ class _carritoComprasState extends State<carritoCompras> {
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        backgroundColor: Colors.red[700],
+        backgroundColor: Colors.orangeAccent[200],
         title: Text("Carrito de Compras", style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 28),),
       ),
       drawer: menu(),
@@ -35,7 +35,7 @@ class _carritoComprasState extends State<carritoCompras> {
               return ListTile(
                 title: Text(widget.pedido[i].nombre+" - "+widget.pedido[i].descripcion+" - "+widget.pedido[i].precio+" - "+
                     widget.pedido[i].cant.toString()+" - "+widget.pedido[i].total.toString()),
-                trailing: Icon(Icons.delete, size: 30, color: Colors.red,),
+                trailing: Icon(Icons.delete, size: 30, color: Colors.orange,),
                 onTap: (){
                   widget.pedido.removeAt(i);
                   setState(() { });

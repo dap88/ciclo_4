@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mipymeapp/main.dart';
+import 'package:mipymeapp/comprobarCliente.dart';
+import 'package:mipymeapp/inicio.dart';
 
 class registroClientes extends StatefulWidget {
   const registroClientes({Key? key}) : super(key: key);
@@ -28,7 +29,7 @@ class _registroClientesState extends State<registroClientes> {
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        backgroundColor: Colors.red[700],
+        backgroundColor: Colors.orangeAccent[200],
         title: Text("Registro de Clientes", style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 28),),
       ),
       drawer: menu(),
@@ -40,9 +41,9 @@ class _registroClientesState extends State<registroClientes> {
               controller: cedula,
               style: TextStyle(color: Colors.red[50]),
               decoration: InputDecoration(
-                fillColor: Colors.red,
+                fillColor: Colors.orange,
                 filled: true,
-                icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.red[900]),
+                icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.orange),
                 hintText: "Digite su número de cédula",
                 hintStyle: TextStyle(color: Colors.black54)
               ),
@@ -54,9 +55,9 @@ class _registroClientesState extends State<registroClientes> {
                 controller: nombre,
                 style: TextStyle(color: Colors.red[50]),
                 decoration: InputDecoration(
-                    fillColor: Colors.red,
+                    fillColor: Colors.orange,
                     filled: true,
-                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.red[900]),
+                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.orange),
                     hintText: "Digite sus nombres y apellidos",
                     hintStyle: TextStyle(color: Colors.black54)
                 ),
@@ -68,9 +69,9 @@ class _registroClientesState extends State<registroClientes> {
                 controller: direccion,
                 style: TextStyle(color: Colors.red[50]),
                 decoration: InputDecoration(
-                    fillColor: Colors.red,
+                    fillColor: Colors.orange,
                     filled: true,
-                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.red[900]),
+                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.orange),
                     hintText: "Digite su dirección de residencia",
                     hintStyle: TextStyle(color: Colors.black54)
                 ),
@@ -82,9 +83,9 @@ class _registroClientesState extends State<registroClientes> {
                 controller: celular,
                 style: TextStyle(color: Colors.red[50]),
                 decoration: InputDecoration(
-                    fillColor: Colors.red,
+                    fillColor: Colors.orange,
                     filled: true,
-                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.red[900]),
+                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.orange),
                     hintText: "Digite su número de celular",
                     hintStyle: TextStyle(color: Colors.black54)
                 ),
@@ -96,9 +97,9 @@ class _registroClientesState extends State<registroClientes> {
                 controller: telefono,
                 style: TextStyle(color: Colors.red[50]),
                 decoration: InputDecoration(
-                    fillColor: Colors.red,
+                    fillColor: Colors.orange,
                     filled: true,
-                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.red[900]),
+                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.orange),
                     hintText: "Digite su número de teléfono fijo",
                     hintStyle: TextStyle(color: Colors.black54)
                 ),
@@ -111,10 +112,10 @@ class _registroClientesState extends State<registroClientes> {
                 style: TextStyle(color: Colors.red[50]),
                 obscureText: true,
                 decoration: InputDecoration(
-                    fillColor: Colors.red,
+                    fillColor: Colors.orange,
                     filled: true,
                     border: OutlineInputBorder(),
-                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.red[900]),
+                    icon: Icon(Icons.app_registration_sharp, size: 25, color: Colors.orange),
                     hintText: "Digite una contraseña para el sistema",
                     hintStyle: TextStyle(color: Colors.black54)
                 ),
@@ -161,13 +162,13 @@ class _registroClientesState extends State<registroClientes> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 20.0, right: 100.0, top: 20.0),
+            padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
             alignment: Alignment.center,
             child: ElevatedButton(
               onPressed: () async {
                 if(cedula.text.isEmpty){
                   print("Datos faltantes");
-                  Fluttertoast.showToast(msg: "Debe digitar la cédula", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
+                  Fluttertoast.showToast(msg: "Debe digitar la cédula", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.deepPurpleAccent,
                       toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
                 } else {
                   List lista=[];
@@ -188,7 +189,7 @@ class _registroClientesState extends State<registroClientes> {
                     clave.text = lista[0]['clave'];
                   } else {
                       limpiar();
-                      Fluttertoast.showToast(msg: "El cliente no encontrado.", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
+                      Fluttertoast.showToast(msg: "El cliente no encontrado.", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.deepPurpleAccent,
                           toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
                   }
                 }
@@ -207,7 +208,7 @@ class _registroClientesState extends State<registroClientes> {
                 child: ElevatedButton(
                   onPressed: (){
                     if(cedula.text.isEmpty || nombre.text.isEmpty || direccion.text.isEmpty || celular.text.isEmpty || telefono.text.isEmpty || clave.text.isEmpty){
-                      Fluttertoast.showToast(msg: "Campos vacios", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
+                      Fluttertoast.showToast(msg: "Campos vacios", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.deepPurpleAccent,
                           toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.BOTTOM);
                     } else {
                       clientes.doc(cedula.text).update({
@@ -218,7 +219,7 @@ class _registroClientesState extends State<registroClientes> {
                         "clave": clave,
                       });
                       limpiar();
-                      Fluttertoast.showToast(msg: "Actualización de datos correcta", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
+                      Fluttertoast.showToast(msg: "Actualización de datos correcta", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.deepPurpleAccent,
                           toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.BOTTOM);
                     }
                   },
@@ -226,17 +227,19 @@ class _registroClientesState extends State<registroClientes> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 20.0, right: 100.0, top: 20.0),
+                padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
                 alignment: Alignment.center,
                 child: ElevatedButton(
                   onPressed: () {
+                    //int val = 0;
+                    //Navigator.push(context, MaterialPageRoute(builder: (context)=>comprobarCliente(val))); // Llamado a la pantalla comprobar cliente
                     if(cedula.text.isEmpty){
-                      Fluttertoast.showToast(msg: "Datos faltantes", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
+                      Fluttertoast.showToast(msg: "Datos faltantes", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.deepPurpleAccent,
                           toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
                     } else {
                       clientes.doc(cedula.text).delete();
                         limpiar();
-                        Fluttertoast.showToast(msg: "Cliente eliminado exitosamente", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.lightGreen,
+                        Fluttertoast.showToast(msg: "Cliente eliminado exitosamente", fontSize: 20, backgroundColor: Colors.red, textColor: Colors.deepPurpleAccent,
                             toastLength: Toast.LENGTH_LONG, gravity: ToastGravity.CENTER);
                     }
                   },

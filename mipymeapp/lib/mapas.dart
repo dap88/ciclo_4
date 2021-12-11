@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:mipymeapp/resultadoConsulta.dart';
-import 'package:mipymeapp/negocios.dart';
+import 'package:mipymeapp/inicio.dart';
+import 'resultadoConsulta.dart';
+import 'negocios.dart';
 
 class mapas extends StatefulWidget {
 
@@ -33,7 +34,7 @@ class _mapasState extends State<mapas> {
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
           infoWindow: InfoWindow(
               title: widget.negocio.nombre+" "+widget.negocio.direccion,
-              snippet: widget.negocio.categoria
+              snippet: widget.negocio.celular.toString()
           )
       )
     );
@@ -43,7 +44,7 @@ class _mapasState extends State<mapas> {
       ),
         body: ListView(
           children: [
-            cuadroImagenes(url: widget.negocio.foto, texto: widget.negocio.nombre),
+            cuadroImagenes(url: widget.negocio.logo, texto: widget.negocio.nombre),
             Container(
               width: 400,
               height: 500,
@@ -60,17 +61,4 @@ class _mapasState extends State<mapas> {
         )
     );
   }
-}
-
-class datosMapa_Negocio{
-  String nombre = "";
-  String direccion = "";
-  String categoria = "";
-  int celular = 0;
-  int telefono = 0;
-  String foto = "";
-  String paginaweb = "";
-  late GeoPoint posicion;
-
-  datosMapa_Negocio(this.nombre, this.direccion, this.categoria, this.celular, this.telefono, this.foto, this.paginaweb, this.posicion);
 }

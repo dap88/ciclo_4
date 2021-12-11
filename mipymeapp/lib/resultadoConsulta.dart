@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mipymeapp/inicio.dart';
 import 'package:mipymeapp/negocios.dart';
 import 'main.dart';
 
@@ -55,7 +56,7 @@ class _resultadoConsultaState extends State<resultadoConsulta> {
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        backgroundColor: Colors.red[700],
+        backgroundColor: Colors.orangeAccent[200],
         title: Text("Producto: "+ widget.criterio, style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 25),),
       ),
       drawer: menu(),
@@ -65,7 +66,7 @@ class _resultadoConsultaState extends State<resultadoConsulta> {
             return ListTile(
               onTap: (){
                 print(negociosLista[j]);
-                datosNegocio n = datosNegocio(negociosLista[j]['nombre'], negociosLista[j]['direccion'], negociosLista[j]['categoria'],negociosLista[j]['telefono'], negociosLista[j]['celular'], negociosLista[j]['paginaweb'], negociosLista[j]['logo'], negociosLista[j]['foto']);
+                datosNegocio n = datosNegocio(negociosLista[j]['nombre'], negociosLista[j]['direccion'], negociosLista[j]['categoria'],negociosLista[j]['telefono'], negociosLista[j]['celular'], negociosLista[j]['paginaweb'], negociosLista[j]['logo'], negociosLista[j]['foto'], negociosLista[j]['posicion']);
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>negocios(negocio: n)));
               },
               title: cuadroImagenes(url: negociosLista[j]['logo'],texto: negociosLista[j]['categoria']+'\n'+negociosLista[j]['nombre']+'\n'+negociosLista[j]['celular'].toString()+" - "+negociosLista[j]['telefono'].toString())
@@ -114,15 +115,17 @@ class datosNegocio{
   String paginaweb = "";
   String logo = "";
   String foto = "";
+  late GeoPoint posicion;
 
-  datosNegocio(nombre, apellido, categoria, telefono, celular, paginaweb, logo, foto){
+  datosNegocio(nombre, direccion, categoria, telefono, celular, paginaweb, logo, foto, posicion){
     this.nombre = nombre;
-    this.direccion = apellido;
+    this.direccion = direccion;
     this.categoria = categoria;
     this.telefono = telefono;
     this.celular = celular;
     this.paginaweb = paginaweb;
     this.logo = logo;
     this.foto = foto;
+    this.posicion = posicion;
   }
 }

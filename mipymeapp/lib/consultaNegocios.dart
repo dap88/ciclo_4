@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mipymeapp/inicio.dart';
 import 'package:mipymeapp/resultadoConsulta.dart';
-import 'main.dart';
+
 
 class consultaNegocios extends StatelessWidget {
   TextEditingController dato= TextEditingController();
@@ -11,15 +12,25 @@ class consultaNegocios extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        backgroundColor: Colors.red[700],
-        title: Text('Buscar', style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 28),),
+        backgroundColor: Colors.orangeAccent[200],
+        title: Text('Buscar', textAlign: TextAlign.center, style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 28),),
       ),
       drawer: menu(),
       body: Column(
         children: [
           Container(
-            child:
-            TextField(controller: dato,),
+            //padding: EdgeInsets.all(20.0),
+            child: TextField(
+                onChanged: (dato){
+                    controller: dato;
+                },
+              autofocus: false,
+              keyboardType: TextInputType.name,
+              textInputAction:  TextInputAction.search,
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search, color: Colors.orange),
+              ),
+            ),
           ),
           Container(
             child: ElevatedButton(onPressed: (){

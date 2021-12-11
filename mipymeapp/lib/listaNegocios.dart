@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mipymeapp/inicio.dart';
 import 'package:mipymeapp/registrarPedido.dart';
 import 'package:mipymeapp/resultadoConsulta.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mipymeapp/main.dart';
 
 class listaNegocios extends StatefulWidget {
   final String cedula;
@@ -43,7 +43,7 @@ class _listaNegociosState extends State<listaNegocios> {
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
-        backgroundColor: Colors.red[700],
+        backgroundColor: Colors.orangeAccent[200],
         title: Text("Negocios", style: TextStyle(fontFamily: 'AbrilFatface', fontSize: 28),),
       ),
       drawer: menu(),
